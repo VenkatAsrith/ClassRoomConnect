@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F5;
+    --text-primary: #1A1A1A;
+    --text-muted: #71717A;
+    --border-color: #E4E4E7;
+  }
+
+  .dark {
+    --bg-primary: #09090B;
+    --bg-secondary: #121214;
+    --text-primary: #FAFAFA;
+    --text-muted: #A1A1AA;
+    --border-color: #27272A;
+  }
+
+  body {
+    @apply antialiased text-[15px] font-sans transition-colors duration-200;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+/* Custom premium visual elements inspired by the reference design */
+
+/* Custom grid background */
+.bg-dotted-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, var(--border-color) 1px, transparent 1px);
+}
+
+/* Concentric overlapping wireframe layout */
+.wireframe-concentric {
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.03) 100%);
+}
+
+.dark .wireframe-concentric {
+  background-image: radial-gradient(circle at center, transparent 30%, rgba(255,255,255,0.015) 100%);
+}
+
+/* Orbital rotation keyframe */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 25s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
