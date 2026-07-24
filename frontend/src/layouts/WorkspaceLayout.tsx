@@ -83,7 +83,7 @@ export const WorkspaceLayout: React.FC = () => {
     if (!workspaceId || !user) return;
 
     const accessToken = localStorage.getItem('cc_accessToken');
-    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'https://classroomconnect.onrender.com';
     const newSocket = io(socketUrl, {
       auth: { token: accessToken },
       query: { token: accessToken }
